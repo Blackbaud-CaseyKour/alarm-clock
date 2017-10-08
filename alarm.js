@@ -18,9 +18,6 @@ jQuery.noConflict();
   function triggerAlarm() {
     if (!$('body').is(':animated')) {
       alarmAnimationLoop();
-
-      $('#snackbar').removeClass('hide');
-      $('#snackbar').addClass('show');
     } else {
       console.log('Animation is in progress!');
     }
@@ -32,9 +29,11 @@ jQuery.noConflict();
     $('body').animate({
       backgroundColor: '#16a085'
     });
-    
-    $('#snackbar').removeClass('show');
-    $('#snackbar').addClass('hide');
+  
+    $('#snackbar').addClass('show');
+    setTimeout(function() {
+      $('#snackbar').removeClass('show');
+    }, 5000);
   }
 
   function loadPage() {
