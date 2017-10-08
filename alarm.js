@@ -16,16 +16,33 @@ jQuery.noConflict();
   }
 
   function triggerAlarm() {
-    alarmAnimationLoop();
+    if (!$('body').is(':animated')) {
+      alarmAnimationLoop();
+
+      $('#snackbar').removeClass('hide');
+      $('#snackbar').addClass('show');
+    } else {
+      console.log('Animation is in progress!');
+    }
   }
 
   function disableAlarm() {
-    // disable alarm
+    i = 0;
+    $('body').stop();
+    $('body').animate({
+      backgroundColor: '#16a085'
+    });
+    
+    $('#snackbar').removeClass('show');
+    $('#snackbar').addClass('hide');
   }
 
   function loadPage() {
-    $('.clock-wrap').click(function (e) {
+    $('.hour-wrap').click(function (e) {
       triggerAlarm();
+    });
+    $('.min-wrap').click(function (e) {
+      disableAlarm();
     });
   }
 })(jQuery);

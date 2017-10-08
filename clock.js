@@ -56,7 +56,8 @@ $(window).addEvent('domready', function () {
 
   var setClock = function () {
     var time = new Date();
-    var hour = time.getHours();
+    var getHour = time.getHours();
+    var hour = getHour > 12 ? getHour - 12 : getHour;
     var min = time.getMinutes();
     var sec = time.getSeconds();
 

@@ -31,6 +31,8 @@ a {
   height: 200px;
   margin: 20px auto 30px auto;
   padding: 15px;
+  position: relative;
+  top: 20%;
 }
 
 .min-wrap,
@@ -78,7 +80,6 @@ a {
   -webkit-transform: rotateX(0deg);
   -moz-transform: rotateX(0deg);
   -o-transform: rotateX(0deg);
-  backface-visibility: hidden;
 }
 
 .clock-wrap .back {
@@ -119,4 +120,51 @@ a {
   top: 0;
   left: 0;
   z-index: 9999;
+}
+
+#snackbar {
+  font-family: 'Pathway Gothic One', sans-serif;
+  visibility: hidden;
+  min-width: 600px; 
+  color: #4F8A10;
+  background-color: #DFF2BF;
+  text-align: center;
+  border-radius: 2px; 
+  padding: 16px;
+  position: fixed; 
+  z-index: 10000; 
+  left: 323px; 
+  bottom: 46%; 
+}
+
+#snackbar.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s;
+  animation: fadein 0.5s;
+}
+
+#snackbar.hide {
+  visibility: hidden;
+  -webkit-animation: fadeout 0.5s 2.5s;
+  animation: fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;} 
+  to {bottom: 46%; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 46%; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: 30px; opacity: 1;} 
+  to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
 }
