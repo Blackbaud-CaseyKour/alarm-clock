@@ -51,8 +51,8 @@
   getSDG()
     .done(function (result) {
       $('#name').val(result.Name);
-      $('#min').val(result.DonationLowerBound);
-      $('#max').val(result.DonationUpperBound);
+      $('#min').val(Number(result.DonationLowerBound).toFixed(2));
+      $('#max').val(Number(result.DonationUpperBound).toFixed(2));
 
       var number = Number(result.MySDG);
       selectedSDG = number < 10 ? '0' + number : number;
@@ -63,7 +63,15 @@
     $('.overlay').hide();
     $('#name').keyboard();
     $('#min').keyboard({ layout: 'num' });
+    $('#min').on('change', function () {
+      $('#min').val(Number($('#min').val()).toFixed(2));
+    });
+
     $('#max').keyboard({ layout: 'num' });
+    $('#max').on('change', function () {
+      $('#max').val(Number($('#max').val()).toFixed(2));
+    });
+    
     $('#save').on('click', function () {
       onSaveClick();
     });
