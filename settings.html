@@ -1,0 +1,48 @@
+<head>
+    <script src="libs/jquery-3.2.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/virtual-keyboard/1.26.26/css/keyboard.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/virtual-keyboard/1.26.26/css/keyboard-basic.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/virtual-keyboard/1.26.26/css/keyboard-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/virtual-keyboard/1.26.26/js/jquery.keyboard.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/virtual-keyboard/1.26.26/js/jquery.keyboard.extension-all.min.js"></script>
+
+    <script src="settings.js"></script>
+    <link rel="stylesheet" type="text/css" href="settings.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="sdg-selector">
+            
+        </div>
+        <div class="configuration-box">
+            <h1>Settings</h1>
+            <br />
+            <div class="donation-range-container">
+                Name:
+                <br />
+
+                <input id="name" class="currency-display small left-align" type="text" placeholder="Name" value="" />
+                <br />
+                <br />
+                On trigger, donate between:
+                <br />
+                <input id="min" class="currency-display" type="text" placeholder="Min Amount" value="" />
+                and
+                <input id="max" class="currency-display" type="text" placeholder="Min Amount" value="" />
+            </div>
+
+            <button id="save">SAVE</button>
+        </div>
+
+        <div class="overlay">
+            <div class="color-overlay"></div>
+            <div class="spinner">
+                <div class="double-bounce1"></div>
+                <div class="double-bounce2"></div>
+            </div>
+        </div>
+    </div>
+</body>

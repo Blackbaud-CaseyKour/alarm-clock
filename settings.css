@@ -1,0 +1,171 @@
+@import url(https://fonts.googleapis.com/css?family=Pathway+Gothic+One);
+
+* {
+  box-sizing: border-box;
+  font-family: "Pathway Gothic One", Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding: 0px;
+  margin: 0px;
+  -webkit-font-smoothing: antialiased;
+  overflow: none;
+}
+
+.app-container {
+  width: 800px;
+  height: 480px;
+  background-color: #16a085;
+  position: relative;
+}
+
+.sdg-image {
+  height: 100px;
+  width: 100px;
+  position: relative;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  float: left;
+  cursor: pointer;
+}
+
+.sdg-image img {
+  height: 100px;
+  width: 100px;
+  margin: 0px;
+}
+
+.sdg-image img:hover {
+  border: 1px solid #eee;
+}
+
+.sdg-image i {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 24px;
+  color: greenyellow;
+  text-shadow: 2px 1px 2px #333;
+}
+
+.sdg-selector {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 600px;
+  height: 480px;
+  font-size: 0;
+  padding: 5px;
+}
+
+.configuration-box {
+  background-color: #eee;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 270px;
+  height: 480px;
+}
+
+h1 {
+  padding-top: 5px;
+  padding-left: 10px;
+}
+
+.currency-display {
+  font-size: 72px;
+  width: 250px;
+  text-align: right;
+  background-color: #fff;
+  padding-right: 10px;
+  padding-left: 10px;
+  border: 1px solid #ddd;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.donation-range-container {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.configuration-box button {
+  width: 270px;
+  font-size: 48px;
+  background-color: #333;
+  border: none;
+  cursor: pointer;
+  color: #eee;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.small {
+  font-size: 24px;
+}
+
+.left-align {
+  text-align: left;
+}
+
+.overlay, .color-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.color-overlay {
+  background-color: #333;
+  opacity: 0.4;
+}
+
+/** spinner **/
+.spinner {
+  width: 120px;
+  height: 120px;
+
+  position: relative;
+  margin: 180px auto;
+}
+
+.double-bounce1, .double-bounce2 {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #71bf43;
+  opacity: 0.9;
+  position: absolute;
+  top: 0;
+  left: 0;
+  
+  -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+  animation: sk-bounce 2.0s infinite ease-in-out;
+}
+
+.double-bounce2 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+@-webkit-keyframes sk-bounce {
+  0%, 100% { -webkit-transform: scale(0.0) }
+  50% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bounce {
+  0%, 100% { 
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 50% { 
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
+}
