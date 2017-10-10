@@ -170,6 +170,16 @@ a {
   animation: fadeout 0.5s 2.5s;
 }
 
+#settings {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 800px;
+  height: 480px;
+  z-index: 10001;
+  display: none;
+}
+
 @-webkit-keyframes fadein {
   from {bottom: 0; opacity: 0;} 
   to {bottom: 0%; opacity: 1;}

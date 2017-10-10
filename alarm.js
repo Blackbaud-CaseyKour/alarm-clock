@@ -1,6 +1,7 @@
 jQuery.noConflict();
 
 (function ($) {
+  var alarmActive = false;
   var i = 0;
   $(document).ready(function () {
     loadPage();
@@ -16,6 +17,7 @@ jQuery.noConflict();
   }
 
   function triggerAlarm() {
+    alarmActive = true;
     if (!$('.clock-wrap').is(':animated')) {
       alarmAnimationLoop();
     } else {
@@ -24,6 +26,7 @@ jQuery.noConflict();
   }
 
   function disableAlarm() {
+    alarmActive = false;
     i = 0;
     $('.clock-wrap').stop();
     $('.clock-wrap').animate({
@@ -33,7 +36,7 @@ jQuery.noConflict();
     $.post('https://otg-alarmclock.azurewebsites.net/api/snooze', '{name}')
       .then(function (results) {
         var message = results.AlexaMessage.replace(/\{name\}/g, results.Name);
-        $('#snackbar').html('<strong>Snooze Activated</strong><br />' + message);
+        $('#snackbar').html('<strong>Snooze Activated</strong><br /><small>' + message + '</small>');
         $('#snackbar').addClass('show');
         setTimeout(function() {
           $('#snackbar').removeClass('show');
@@ -41,12 +44,27 @@ jQuery.noConflict();
       });
   }
 
+  function showSettings() {
+    $('#settings').show();
+    window.closeSettings = function() {
+      $('#settings').hide();
+    };
+  }
+
   function loadPage() {
     $('.hour-wrap').click(function (e) {
+      e.stopPropagation();
       triggerAlarm();
     });
-    $('.min-wrap').click(function (e) {
-      disableAlarm();
+    $('.clock-wrap').click(function (e) {
+      e.stopPropagation();
+      if (alarmActive === true) {
+        disableAlarm();
+      }
+    });
+
+    $('.fa-gear').click(function (e) {
+      showSettings();
     });
   }
 })(jQuery);

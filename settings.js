@@ -45,6 +45,9 @@
       })
     }).then(function () {
       $('.overlay').hide();
+      if (window.parent && window.parent.closeSettings) {
+        window.parent.closeSettings();
+      }
     });
   }
 
