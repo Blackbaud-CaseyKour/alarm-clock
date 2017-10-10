@@ -26,11 +26,11 @@ a {
 }
 
 .clock-wrap {
-  width: 610px;
+  width: 1200px;
   font-family: 'Pathway Gothic One', sans-serif;
   height: 200px;
-  margin: 20px auto 30px auto;
-  padding: 15px;
+  /*margin: 20px auto 30px auto;
+  padding: 15px;*/
   position: relative;
   top: 20%;
 }
@@ -41,6 +41,7 @@ a {
   height: 200px;
   float: left;
   position: relative;
+  padding-left: 150px;
 }
 
 .min-wrap, .sec-wrap {
@@ -49,20 +50,20 @@ a {
 
 .digit-top,
 .digit-bottom {
-  width: 200px;
-  height: 100px;
+  width: 300px;
+  height: 200px;
   position: absolute;
 }
 
 .clock-wrap .front, .clock-wrap .back {
-  width: 200px;
+  width: 300px;
   height: 100px;
   position: absolute;
   overflow: hidden;
   background: #ffffff;
   color: #000000;
   text-align: center;
-  font-size: 150px;
+  font-size: 250px;
   transition: transform 800ms, z-index 800ms;
   -moz-transition: -moz-transform 800ms, z-index 800ms;
   -webkit-transition: -webkit-transform 800ms, z-index 800ms;
@@ -110,7 +111,7 @@ a {
   background: white;
 }
 
-.hour-wrap:before, .min-wrap:before, .sec-wrap:before {
+/*.hour-wrap:before, .min-wrap:before, .sec-wrap:before {
   content: "";
   background: #000000;
   opacity: 0.04;
@@ -120,21 +121,22 @@ a {
   top: 0;
   left: 0;
   z-index: 9999;
-}
+}*/
 
 #snackbar {
   font-family: 'Pathway Gothic One', sans-serif;
+  font-size: 72px;
   visibility: hidden;
-  min-width: 600px; 
+  min-width: 1300px;
+  min-height: 240px; 
   color: #4F8A10;
   background-color: #DFF2BF;
   text-align: center;
   border-radius: 2px; 
   padding: 16px;
   position: fixed; 
-  z-index: 10000; 
-  left: 323px; 
-  bottom: 46%; 
+  z-index: 10000;
+  bottom: 0%; 
 }
 
 #snackbar.show {
@@ -151,12 +153,12 @@ a {
 
 @-webkit-keyframes fadein {
   from {bottom: 0; opacity: 0;} 
-  to {bottom: 46%; opacity: 1;}
+  to {bottom: 0%; opacity: 1;}
 }
 
 @keyframes fadein {
   from {bottom: 0; opacity: 0;}
-  to {bottom: 46%; opacity: 1;}
+  to {bottom: 0%; opacity: 1;}
 }
 
 @-webkit-keyframes fadeout {
