@@ -2,6 +2,8 @@ jQuery.noConflict();
 
 (function ($) {
   var alarmActive = false;
+  var alarmAudio1;
+  var alarmAudio2;
   var i = 0;
   $(document).ready(function () {
     loadPage();
@@ -19,9 +21,17 @@ jQuery.noConflict();
   function triggerAlarm() {
     alarmActive = true;
     if (!$('.clock-wrap').is(':animated')) {
+      if (!alarmAudio1) {
+        alarmAudio1 = new Audio('audio/Wake-up-sounds.mp3');
+        alarmAudio1.loop = true;
+        alarmAudio1.play();
+        setTimeout(function () {
+          alarmAudio2 = new Audio('audio/Cuckoo-clock-sound.mp3');
+          alarmAudio2.loop = true;
+          alarmAudio2.play();
+        }, 500);
+      }
       alarmAnimationLoop();
-    } else {
-      console.log('Animation is in progress!');
     }
   }
 
@@ -32,11 +42,21 @@ jQuery.noConflict();
     $('.clock-wrap').animate({
       backgroundColor: '#16a085'
     });
+
+    if (alarmAudio1) {
+      alarmAudio1.pause();
+      alarmAudio1.currentTime = 0;
+    }
   
+    if (alarmAudio2) {
+      alarmAudio2.pause();
+      alarmAudio2.currentTime = 0;
+    }
+
     $.post('https://otg-alarmclock.azurewebsites.net/api/snooze', '{name}')
       .then(function (results) {
         var message = results.AlexaMessage.replace(/\{name\}/g, results.Name);
-        $('#snackbar').html('<strong>Snooze Activated</strong><br /><small>' + message + '</small>');
+        $('#snackbar').html('<small>' + message + '</small>');
         $('#snackbar').addClass('show');
         setTimeout(function() {
           $('#snackbar').removeClass('show');
