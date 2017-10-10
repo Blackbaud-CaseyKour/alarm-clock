@@ -8,7 +8,7 @@ jQuery.noConflict();
 
   function alarmAnimationLoop() {
     var colors = ['#dc143c', '#ff69b4', '#ffa500', '#16a085'];
-    $('body').animate({
+    $('.clock-wrap').animate({
       backgroundColor: colors[(i++) % colors.length]
     }, 200, function () {
       alarmAnimationLoop();
@@ -16,7 +16,7 @@ jQuery.noConflict();
   }
 
   function triggerAlarm() {
-    if (!$('body').is(':animated')) {
+    if (!$('.clock-wrap').is(':animated')) {
       alarmAnimationLoop();
     } else {
       console.log('Animation is in progress!');
@@ -25,15 +25,20 @@ jQuery.noConflict();
 
   function disableAlarm() {
     i = 0;
-    $('body').stop();
-    $('body').animate({
+    $('.clock-wrap').stop();
+    $('.clock-wrap').animate({
       backgroundColor: '#16a085'
     });
   
-    $('#snackbar').addClass('show');
-    setTimeout(function() {
-      $('#snackbar').removeClass('show');
-    }, 5000);
+    $.post('https://otg-alarmclock.azurewebsites.net/api/snooze', '{name}')
+      .then(function (results) {
+        var message = results.AlexaMessage.replace(/\{name\}/g, results.Name);
+        $('#snackbar').html('<strong>Snooze Activated</strong><br />' + message);
+        $('#snackbar').addClass('show');
+        setTimeout(function() {
+          $('#snackbar').removeClass('show');
+        }, 5000);
+      });
   }
 
   function loadPage() {

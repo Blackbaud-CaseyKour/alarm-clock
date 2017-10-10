@@ -8,35 +8,38 @@
     <link rel="stylesheet" type="text/css" href="clock.css">
 </head>
 <body>
-    <div class="clock-wrap">
-        <div class="hour-wrap">
-            <div class="digit-top">
-                <div class="front">00</div>
-                <div class="back">00</div>
+    <div class="app-container">
+        <div class="clock-wrap">
+            <div class="hour-wrap first">
+                <div class="digit-top">
+                    <div class="front">00</div>
+                    <div class="back">00</div>
+                </div>
+                <div class="digit-bottom">
+                    <div class="front">00</div>
+                </div>
             </div>
-            <div class="digit-bottom">
-                <div class="front">00</div>
+            <div class="min-wrap first">
+                <div class="digit-top">
+                    <div class="front">00</div>
+                    <div class="back">00</div>
+                </div>
+                <div class="digit-bottom">
+                    <div class="front">00</div>
+                </div>
             </div>
-        </div>
-        <div class="min-wrap">
-            <div class="digit-top">
-                <div class="front">00</div>
-                <div class="back">00</div>
+            <div class="sec-wrap first">
+                <div class="digit-top">
+                    <div class="front">00</div>
+                    <div class="back">00</div>
+                </div>
+                <div class="digit-bottom">
+                    <div class="front">00</div>
+                </div>
+                <i class="fa fa-gear" style="font-size:56px;color:#000000;position:absolute;z-index:1000;top:230px;right:20px"></i>
             </div>
-            <div class="digit-bottom">
-                <div class="front">00</div>
-            </div>
-        </div>
-        <div class="sec-wrap">
-            <div class="digit-top">
-                <div class="front">00</div>
-                <div class="back">00</div>
-            </div>
-            <div class="digit-bottom">
-                <div class="front">00</div>
-            </div>
-            <i class="fa fa-gear" style="font-size:56px;color:#000000;position:absolute;z-index:1000;top:230px;right:-80px"></i>
+
+            <div id="snackbar"></div>
         </div>
     </div>
-    <div id="snackbar">You have donated $4.33 to the Water For Good organization.</div>
 </body>
