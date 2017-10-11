@@ -21,6 +21,7 @@ jQuery.noConflict();
   function triggerAlarm() {
     alarmActive = true;
     if (!$('.clock-wrap').is(':animated')) {
+      $('.snooze').show();
       if (!alarmAudio1) {
         alarmAudio1 = new Audio('audio/Wake-up-sounds.mp3');
         alarmAudio1.loop = true;
@@ -39,12 +40,12 @@ jQuery.noConflict();
     }
   }
 
-  function disableAlarm() {
+  function disableAlarm(snooze) {
     alarmActive = false;
     i = 0;
     $('.clock-wrap').stop();
     $('.clock-wrap').animate({
-      backgroundColor: '#16a085'
+      backgroundColor: '#007ca6'
     });
 
     if (alarmAudio1) {
@@ -57,15 +58,19 @@ jQuery.noConflict();
       alarmAudio2.currentTime = 0;
     }
 
-    $.post('https://otg-alarmclock.azurewebsites.net/api/snooze', '{name}')
-      .then(function (results) {
-        var message = results.AlexaMessage.replace(/\{name\}/g, results.Name);
-        $('#snackbar').html('<small>' + message + '</small>');
-        $('#snackbar').addClass('show');
-        setTimeout(function() {
-          $('#snackbar').removeClass('show');
-        }, 5000);
-      });
+    if (snooze) {
+      $.post('https://otg-alarmclock.azurewebsites.net/api/snooze', '{name}')
+        .then(function (results) {
+          var message = results.AlexaMessage.replace(/\{name\}/g, results.Name);
+          $('#snackbar').html('<small>' + message + '</small>');
+          $('#snackbar').addClass('show');
+          setTimeout(function() {
+            $('#snackbar').removeClass('show');
+          }, 5000);
+        });
+    }
+
+    $('.snooze').hide();
   }
 
   function showSettings() {
@@ -84,7 +89,7 @@ jQuery.noConflict();
     $('.clock-wrap').click(function (e) {
       e.stopPropagation();
       if (alarmActive === true) {
-        disableAlarm();
+        disableAlarm(false);
       }
     });
 
@@ -99,6 +104,10 @@ jQuery.noConflict();
 
     $('#snackbar').click(function (e) {
       $('#snackbar').removeClass('show');
+    });
+
+    $('.snooze button').click(function (e) {
+      disableAlarm(true);
     });
   }
 })(jQuery);

@@ -47,8 +47,26 @@ a {
   outline: none;
 }
 
+.snooze {
+  position: absolute;
+  bottom: 0;
+  left: 200px;
+  width: 400px;
+  display: none;
+}
+
+.snooze button {
+  border: none;
+  background: #71bf43;
+  width: 400px;
+  height: 80px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 48px;
+}
+
 .app-container {
-  background-color: #16a085;
+  background-color: #007ca6;
   -webkit-font-smoothing: antialiased;
   text-align: center;
   width: 800px;
@@ -171,7 +189,7 @@ a {
   min-width: 800px;
   min-height: 240px; 
   color: #4F8A10;
-  background-color: #DFF2BF;
+  background-color: #b7da9b;
   text-align: center;
   border-radius: 2px; 
   padding: 16px;
