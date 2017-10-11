@@ -32,7 +32,7 @@ jQuery.noConflict();
           alarmAudio2 = new Audio('audio/Cuckoo-clock-sound.mp3');
           alarmAudio2.loop = true;
         }
-        
+
         alarmAudio2.play();
       }, 500);
       alarmAnimationLoop();
@@ -95,6 +95,10 @@ jQuery.noConflict();
     $('.refresh').click(function () {
       console.log('lolwut');
       window.location.reload();
+    });
+
+    $('#snackbar').click(function (e) {
+      $('#snackbar').removeClass('show');
     });
   }
 })(jQuery);
