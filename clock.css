@@ -33,6 +33,9 @@ a {
   text-align: center;
   width: 800px;
   height: 480px;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .clock-wrap {
@@ -178,6 +181,7 @@ a {
   height: 480px;
   z-index: 10001;
   display: none;
+  border: none;
 }
 
 @-webkit-keyframes fadein {

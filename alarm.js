@@ -66,10 +66,11 @@ jQuery.noConflict();
 
   function showSettings() {
     $('#settings').show();
-    window.closeSettings = function() {
-      $('#settings').hide();
-    };
   }
+
+  window.addEventListener('message', function () {
+    $('#settings').hide();
+  }, false);
 
   function loadPage() {
     $('.hour-wrap').click(function (e) {

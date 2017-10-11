@@ -45,8 +45,8 @@
       })
     }).then(function () {
       $('.overlay').hide();
-      if (window.parent && window.parent.closeSettings) {
-        window.parent.closeSettings();
+      if (window.parent) {
+        window.parent.postMessage('closeSettings', window.parent.location.origin);
       }
     });
   }
