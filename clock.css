@@ -28,6 +28,25 @@ a {
   text-align: center;
 }
 
+.refresh {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.refresh button {
+  height: 50px;
+  width: 50px;
+  border: none;
+  background: transparent;
+  z-index: 10100;
+  cursor: pointer;
+}
+
+.refresh button:active {
+  outline: none;
+}
+
 .app-container {
   background-color: #16a085;
   -webkit-font-smoothing: antialiased;

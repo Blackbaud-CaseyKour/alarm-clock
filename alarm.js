@@ -87,5 +87,10 @@ jQuery.noConflict();
     $('.fa-gear').click(function (e) {
       showSettings();
     });
+
+    $('.refresh').click(function () {
+      console.log('lolwut');
+      window.location.reload();
+    });
   }
 })(jQuery);
