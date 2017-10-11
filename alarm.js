@@ -24,13 +24,17 @@ jQuery.noConflict();
       if (!alarmAudio1) {
         alarmAudio1 = new Audio('audio/Wake-up-sounds.mp3');
         alarmAudio1.loop = true;
-        alarmAudio1.play();
-        setTimeout(function () {
+      }
+
+      alarmAudio1.play();
+      setTimeout(function () {
+        if (!alarmAudio2) {
           alarmAudio2 = new Audio('audio/Cuckoo-clock-sound.mp3');
           alarmAudio2.loop = true;
-          alarmAudio2.play();
-        }, 500);
-      }
+        }
+        
+        alarmAudio2.play();
+      }, 500);
       alarmAnimationLoop();
     }
   }
