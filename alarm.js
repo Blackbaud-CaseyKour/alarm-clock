@@ -121,6 +121,8 @@ jQuery.noConflict();
           MySDG: Number('3')
         })
       });
+
+      $('#settings')[0].contentWindow.postMessage('updateSettings', '*')
     });
   }
 })(jQuery);

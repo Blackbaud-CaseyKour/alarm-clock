@@ -60,6 +60,10 @@
       render();
     });
 
+  window.addEventListener('message', function () {
+    window.location.reload();
+  }, false);
+  
   setTimeout(function () {
     $('.overlay').hide();
     $('#name').keyboard();
