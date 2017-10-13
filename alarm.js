@@ -107,7 +107,7 @@ jQuery.noConflict();
       disableAlarm(true);
     });
 
-    $('.reset').click(function () {
+    $('.reset button').click(function () {
       $.ajax({
         url: 'https://otg-alarmclock.azurewebsites.net/api/',
         method: 'post',
