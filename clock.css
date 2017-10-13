@@ -47,6 +47,25 @@ a {
   outline: none;
 }
 
+.reset {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.reset button {
+  height: 50px;
+  width: 50px;
+  border: none;
+  background: transparent;
+  z-index: 10100;
+  cursor: pointer;
+}
+
+.reset button:active {
+  outline: none;
+}
+
 .snooze {
   position: absolute;
   bottom: 0;

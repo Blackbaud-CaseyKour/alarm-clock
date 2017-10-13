@@ -64,9 +64,6 @@ jQuery.noConflict();
           var message = results.AlexaMessage.replace(/\{name\}/g, results.Name);
           $('#snackbar').html('<small>' + message + '</small>');
           $('#snackbar').addClass('show');
-          setTimeout(function() {
-            $('#snackbar').removeClass('show');
-          }, 5000);
         });
     }
 
@@ -108,6 +105,22 @@ jQuery.noConflict();
 
     $('.snooze button').click(function (e) {
       disableAlarm(true);
+    });
+
+    $('.reset').click(function () {
+      $.ajax({
+        url: 'https://otg-alarmclock.azurewebsites.net/api/',
+        method: 'post',
+        contentType: 'application/json',
+        processData: false,
+        data: JSON.stringify({
+          Id: 'testUser',
+          DonationLowerBound: Number('0.30').val(),
+          DonationUpperBound: Number('0.85').val(),
+          Name: 'Brandon',
+          MySDG: Number('3')
+        })
+      });
     });
   }
 })(jQuery);
