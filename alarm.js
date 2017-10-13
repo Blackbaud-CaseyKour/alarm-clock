@@ -115,8 +115,8 @@ jQuery.noConflict();
         processData: false,
         data: JSON.stringify({
           Id: 'testUser',
-          DonationLowerBound: Number('0.30').val(),
-          DonationUpperBound: Number('0.85').val(),
+          DonationLowerBound: Number('0.30'),
+          DonationUpperBound: Number('0.85'),
           Name: 'Brandon',
           MySDG: Number('3')
         })
